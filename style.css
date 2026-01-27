@@ -108,7 +108,7 @@ span {
 .home-img img{
     position: relative;
     top: 3rem;
-    width: 32vw;
+    width: 20vw;
     border-radius: 50%;
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
@@ -211,23 +211,23 @@ span {
 @keyframes words {
     0%,
     20% {
-        content: "Frontend Designer";
+        content: "Systems Engineer";
     }
     21%,
     40%{
-        content: "Web Designer";
+        content: "IT Support Specialist";
     }
     41%,
     60% {
-        content: "UI / UX Designer";
+        content: "Frontend Developer";
     }
     61%,
     80% {
-        content: "Web Developer";
+        content: "Database Administrator";
     }
     81%,
     100% {
-        content: "Software Tester";
+        content: "UI / UX Designer";
     }
 }
 @keyframes typing {
@@ -349,21 +349,21 @@ span {
     background-color: var(--bg-color);
     width: 50px;
 }
-.services {
+.skills {
     background: var(--bg-color);
     color: black;
 }
-.services h2 {
+.skills h2 {
     margin-bottom: 5rem;
     color: white;
 }
-.services-container {
+.skills-container {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     align-items: center;
     gap: 2.5rem;
 }
-.service-box {
+.skills-box {
     background-color: var(--main-color);
     height: 300px;
     border-radius: 3rem;
@@ -371,13 +371,13 @@ span {
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
-.service-box:hover {
+.skills-box:hover {
     background: white;
     color: black;
     border: 5px solid var(--main-color);
     transform: scale(1.03);
 }
-.service-box .service-info {
+.skills-box .service-info {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -386,29 +386,32 @@ span {
     align-items: baseline;
     padding: 5rem 5rem;
 }
-.service-info h4 {
+.skills-info h4 {
     font-size: 3rem;
+    text-align: center;
     font-weight: 800;
     line-height: 2;
 }
-.service-info p {
+.skills-info p {
+    text-align: center;
     font-size: 1.6rem;
-    font-weight: 600;
-    max-height: 100px;
-    line-height: 1.7;
+    font-weight: 500;
+    max-height: 150px;
+    line-height: 1.8;
     margin: auto;
 }
-.skills {
+
+.experience {
     background: var(--second-bg-color);
 }
-.skills-box {
+.experience-box {
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.skills .heading {
+.experience .heading {
     margin-bottom: 5rem;
 }
 /*.skills-box img{
@@ -426,7 +429,7 @@ span {
     grid-template-columns: repeat(3,1fr);
     gap: 3rem;
 }
-.skill-item {
+.experience-item {
     min-height: 550px;
     max-width: 450px;
     background: rgb(0, 0, 0, 0.7);
@@ -444,16 +447,18 @@ span {
     color: white;
     transition: 0.4s ease-in-out;
 }
-.skill-item:hover {
+.experience-item:hover {
     border: 3px solid var(--main-color);
     transform: translateY(-10px)scale(1.03);
     box-shadow: 0 0 50px var(--main-color);
 }
-.skill-item h2 {
+.experience-item h2 {
     font-size: 2.8rem;
+    line-height: 1.5;
 }
-.skill-item p {
+.experience-item p {
     font-size: 1.3rem;
+    line-height: 1.5;
 }
 .contact {
     background-color: var(--bg-color);
