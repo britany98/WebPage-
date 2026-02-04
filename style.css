@@ -441,8 +441,6 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
     gap: 1.5rem;
     color: white;
     transition: 0.4s ease-in-out;
@@ -453,11 +451,18 @@ span {
     box-shadow: 0 0 50px var(--main-color);
 }
 .experience-item h2 {
-    font-size: 2.8rem;
+    text-align: center;
+    font-size: 3rem;
     line-height: 1.5;
 }
+.experience-item h3 {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1;
+}
 .experience-item p {
-    font-size: 1.3rem;
+    text-align: justify;
+    font-size: 1.4rem;
     line-height: 1.5;
 }
 .contact {
@@ -650,6 +655,16 @@ span {
     .services-container {
         grid-template-columns: repeat(1,1fr);
     }
+}
+
+.swal2-popup.toast-popup {
+  font-size: 1.8rem;
+  padding: 1.3rem 1.5rem;
+  min-width: 350px;
+  border: 2px solid #ff2f94;
+  box-shadow: 
+     0 0 15px rgba(255,47,148,.6),
+     0 0 25px rgba(255,47,148,.35);
 }
 
 

@@ -1,28 +1,22 @@
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
-let sections = document.querySelector('section');
-let navLinks = document.querySelector('header nav a');
+const sections  = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('header nav a');
 
-window.onscroll = () => {
-    sections.onbeforematch(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const id = entry.target.getAttribute('id');
+    const link = document.querySelector(`header nav a[href*="${id}"]`);
+    if (!link) return;
 
-        if(top >= offset && top < offset + height){
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a [href*=' 
-                    + id + ' ]').classList.add('active')
-            })
-        }
-    })
-}
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+    }
+  });
+}, { threshold: 0.6 });
 
-
-
-
+sections.forEach(sec => observer.observe(sec));
 
 
 menuIcon.onclick = () => {
@@ -31,65 +25,59 @@ menuIcon.onclick = () => {
 }
 
 
-// PUBLIC_KEY
+// ====== Toast SweetAlert2 (config global) ======
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',        // esquina superior derecha
+  showConfirmButton: false,   // sin botón
+  timer: 4000,                // se cierra solo
+  timerProgressBar: true,
+  background: '#151515',      // fondo oscuro
+  color: '#e9e9e9',           // texto claro
+  customClass: {
+    popup: 'toast-popup'
+  },
+  didOpen: (toast) => {
+    // pausa el temporizador al pasar el mouse
+    toast.addEventListener('mouseenter', Swal.stopTimer);
+    toast.addEventListener('mouseleave', Swal.resumeTimer);
+  }
+});
+
+// ====== Ejemplo: tu envío con EmailJS ======
 emailjs.init("u50CFanx0S8QgplxU");
 
-// Espera a que el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
-  const submitBtn = form?.querySelector(".btn"); // tu botón "Send Message"
-
-  if (!form) {
-    console.error("No se encontró el formulario con id='contactForm'.");
-    return;
-  }
-
-  // Validación simple (opcional pero recomendable)
-  const validators = {
-    fullName: (v) => v.trim().length >= 2,
-    email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
-    subject: (v) => v.trim().length >= 2,
-    message: (v) => v.trim().length >= 5,
-    phone: (v) => v === "" || /^[0-9+()\-\s]{7,}$/.test(v),
-  };
+  if (!form) return console.error("Falta #contactForm");
+  const submitBtn = form.querySelector(".btn");
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Lee los valores por name=""
-    const data = Object.fromEntries(new FormData(form));
-
-    // Validación mínima
-    const required = ["fullName", "email", "subject", "message"];
-    for (const key of required) {
-      if (!validatorskey) {
-        alert("Por favor, completa correctamente los campos requeridos.");
-        return;
-      }
-    }
-    // Validación de phone si viene
-    if (!validators.phone(data.phone || "")) {
-      alert("El número de teléfono no es válido.");
-      return;
-    }
-
-    // Deshabilita botón mientras envía
+    // Deshabilitar botón mientras envía
     if (submitBtn) {
       submitBtn.disabled = true;
       if ("value" in submitBtn) submitBtn.value = "Sending...";
       else submitBtn.textContent = "Sending...";
     }
 
-    // Envía usando EmailJS (usa tus IDs)
-    emailjs
-      .sendForm("service_1", "template_1", this)
+    emailjs.sendForm("service_1", "template_1", this)
       .then(() => {
-        alert("¡Mensaje enviado correctamente! 💗📩");
+        // ✅ Toast de éxito
+        Toast.fire({
+          icon: 'success',
+          title: '¡Mensaje enviado!'
+        });
         form.reset();
       })
-      .catch((error) => {
-        console.error("Error al enviar con EmailJS:", error);
-        alert("Hubo un problema al enviar. Inténtalo de nuevo.");
+      .catch((err) => {
+        console.error("EmailJS error:", err);
+        // ❌ Toast de error
+        Toast.fire({
+          icon: 'error',
+          title: 'No se pudo enviar. Inténtalo de nuevo.'
+        });
       })
       .finally(() => {
         if (submitBtn) {

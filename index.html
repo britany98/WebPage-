@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
-    <!--<link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'> -->
     <link href='https://cdn.boxicons.com/3.0.6/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -42,7 +41,6 @@
                 <a href="https://www.facebook.com/britany.rojas.m/"><i class='bxl  bx-facebook'></i> </a>
             </div>
             <div class="btn-group">
-                <!--<a href="#" class="btn">Hire</a>-->
                 <a href="#contact" class="btn">Contact</a>
             </div>
         </div>
@@ -102,31 +100,34 @@
             <div class="wrapper">
 
                 <div class="experience-item">
-                    <h2>IT Support Technician – Vertix Solutions</h2>
+                    <h2>IT Support Technician</h2>
+                    <h3>Vertix Solutions</h3>
                     <div class="rating"></div>
-                    <p>  Provide technical support for hardware, software, and network issues.<br> 
-                         Assist with system maintenance and user account management.<br> 
-                         Document procedures and support onboarding processes.
+                    <p>  -Provide technical support for hardware, software, and network issues.<br> 
+                         -Assist with system maintenance and user account management.<br> 
+                         -Document procedures and support onboarding processes.
                     </p>
                 </div>
 
                 <div class="experience-item">
-                    <h2>Intern Software Developer – Credix World S.A</h2>
+                    <h2>Intern Software Developer</h2>
+                    <h3>Credix World S.A</h3>
                     <div class="rating"></div>
-                    <p>  Developed and maintained electronic invoicing system.<br>  
-                         Conducted software testing and implemented new features.<br>  
-                         Designed UI with Angular and managed SQL Server database.<br>  
-                         Used GitHub for version control and release management.
+                    <p>  -Developed and maintained electronic invoicing system.<br>  
+                         -Conducted software testing and implemented new features.<br>  
+                         -Designed UI with Angular and managed SQL Server database.<br>  
+                         -Used GitHub for version control and release management.
                     </p>
                 </div>
 
                 <div class="experience-item">
-                    <h2>Administrator and Cashier – Super La Macacona </h2>
+                    <h2>Administrator and Cashier</h2>
+                    <h3>Super La Macacona</h3>
                     <div class="rating"></div>
-                    <p>  Managed inventory, purchasing, and sales operations.<br>  
-                         Trained staff and ensured high-quality customer service.<br>   
-                         Handled financial reports and payment processing.<br>   
-                         Negotiated with suppliers and improved sales strategies. 
+                    <p>  -Managed inventory, purchasing, and sales operations.<br>  
+                         -Trained staff and ensured high-quality customer service.<br>   
+                         -Handled financial reports and payment processing.<br>   
+                         -Negotiated with suppliers and improved sales strategies. 
 
                     </p>
                 </div>
@@ -173,7 +174,7 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
 
-        <form action="" id="contactForm">
+        <form id="contactForm">
             <div class="input-group">
                 <div class="input-box">
                     <input type="text" name="fullName" placeholder="Full Name">
@@ -181,12 +182,12 @@
                 </div>
                 <div class="input-box">
                     <input type="number" name="phone" placeholder="Phone Number">
-                    <input type="text" ame="subject" placeholder="Subject">
+                    <input type="text" name="subject" placeholder="Subject">
                 </div>
             </div>
             <div class="input-group-2">
                 <textarea name="message" id="" cols="30" rows="10" 
-                    placeholder="Your Message"></textarea>
+                    placeholder="Your Message" required></textarea>
                 <input type="submit" value="Send Message" class="btn">
             </div>
         </form>
@@ -201,31 +202,35 @@
             <a href="https://www.instagram.com/britrojasm/"><i class='bxl  bx-instagram'></i> </a>
             <a href="https://www.facebook.com/britany.rojas.m/"><i class='bxl  bx-facebook'></i> </a>
         </div>
-        <!--<ul class="list">
+            <ul class="list">
             <li>
-                <a href="#">FAQ</a>
+                <a href="#education">Education</a>
             </li>
             <li>
-                <a href="#">Experience</a>
+                <a href="#experience">Experience</a>
             </li>
             <li>
-                <a href="#">About Me</a>
+                <a href="#home">About Me</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="#contact">Contact</a>
             </li>
             <li>
-                <a href="#">Skills</a>
+                <a href="#skills">Skills</a>
             </li>
-        </ul> -->
+        </ul> 
         <p class="copyright">
             @ Britany Rojas | All Rights Reserved
         </p>
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    </body>
+    </html>
 
-    script.js</script>
 
 
 </body>
